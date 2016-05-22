@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Thoser666Twitch-ui:war">
+    <output-path>$PROJECT_DIR$/Thoser666Twitch-ui/target</output-path>
+    <root id="archive" name="Thoser666Twitch-ui-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="Thoser666Twitch-ui:war exploded" />
+    </root>
+  </artifact>
+</component>

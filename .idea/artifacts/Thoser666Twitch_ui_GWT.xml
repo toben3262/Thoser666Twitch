@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact name="Thoser666Twitch-ui:GWT">
+    <output-path>$PROJECT_DIR$/Thoser666Twitch-ui/target/classes/VAADIN/widgetsets</output-path>
+    <root id="root">
+      <element id="gwt-compiler-output" facet="Thoser666Twitch-ui/gwt/GWT" />
+    </root>
+  </artifact>
+</component>

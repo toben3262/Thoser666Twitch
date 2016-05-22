@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Thoser666Twitch.iml" filepath="$PROJECT_DIR$/Thoser666Twitch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Thoser666Twitch-backend/Thoser666Twitch-backend.iml" filepath="$PROJECT_DIR$/Thoser666Twitch-backend/Thoser666Twitch-backend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Thoser666Twitch-production/Thoser666Twitch-production.iml" filepath="$PROJECT_DIR$/Thoser666Twitch-production/Thoser666Twitch-production.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Thoser666Twitch-ui/Thoser666Twitch-ui.iml" filepath="$PROJECT_DIR$/Thoser666Twitch-ui/Thoser666Twitch-ui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Thoser666Twitch-widgetset/Thoser666Twitch-widgetset.iml" filepath="$PROJECT_DIR$/Thoser666Twitch-widgetset/Thoser666Twitch-widgetset.iml" />
+    </modules>
+  </component>
+</project>
