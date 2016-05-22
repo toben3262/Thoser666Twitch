@@ -18,6 +18,13 @@
             <version>1.1.0.Final</version>
         </dependency>
 
+        <!-- http://mvnrepository.com/artifact/org.liquibase/liquibase-core -->
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>3.5.1</version>
+        </dependency>
+
         <!-- Testing -->
         <dependency>
             <groupId>junit</groupId>
