@@ -1,6 +1,7 @@
 package db;
 
 import java.sql.*;
+import org.h2.jdbcx.JdbcDataSource;
 
 /**
  * Created by stbrumm on 22.05.16.
@@ -9,8 +10,11 @@ import java.sql.*;
 public class DBConnection
 {
     public DBConnection() throws SQLException, ClassNotFoundException {
-        Class.forName("org.h2.Driver");
-        Connection conn = DriverManager.getConnection("jdbc:h2:~/test", "sa", "");
+        JdbcDataSource ds = new JdbcDataSource();
+		ds.setURL("jdbc:h2:./t666t");
+		ds.setUser("sa");
+		ds.setPassword("sa");
+		Connection conn = ds.getConnection();
         // add application code here
         conn.close();
 
