@@ -1,5 +1,6 @@
 package db;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -56,6 +57,12 @@ public class DBConnectionTest
 
     @Test
     public void testConnectionClose()
+    {
+        db.connClose();
+    }
+
+    @After
+    public void tearDown()
     {
         db.connClose();
     }
