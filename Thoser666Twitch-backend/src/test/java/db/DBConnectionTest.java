@@ -1,10 +1,13 @@
 package db;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.sql.SQLException;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by stbrumm on 22.05.16.
@@ -12,6 +15,21 @@ import static org.junit.Assert.assertNotNull;
 public class DBConnectionTest
 {
     private DBConnection db;
+
+    @Before
+    public void setUp()
+    {
+        try
+        {
+            db = new DBConnection();
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+    }
 
     @Test
     public void testIfDBConnectionWorks()
@@ -28,4 +46,18 @@ public class DBConnectionTest
         }
         assertNotNull(db);
     }
+
+    @Test
+    public void testForCustomQuery()
+    {
+        String erg = db.customQueryWithResult("Select * from Users");
+        assertEquals(erg, "Test");
+    }
+
+    @Test
+    public void testConnectionClose()
+    {
+        db.connClose();
+    }
+
 }
