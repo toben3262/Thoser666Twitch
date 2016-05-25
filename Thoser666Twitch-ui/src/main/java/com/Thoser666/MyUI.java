@@ -8,6 +8,7 @@ import com.Thoser666.samples.authentication.BasicAccessControl;
 import com.Thoser666.samples.authentication.LoginScreen;
 import com.Thoser666.samples.authentication.LoginScreen.LoginListener;
 
+import com.jain.addon.i18N.component.I18NUI;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.annotations.Viewport;
@@ -29,7 +30,8 @@ import com.vaadin.ui.themes.ValoTheme;
 @Viewport("user-scalable=no,initial-scale=1.0")
 @Theme("mytheme")
 @Widgetset("com.Thoser666.MyAppWidgetset")
-public class MyUI extends UI {
+public class MyUI extends I18NUI
+{
 
     private AccessControl accessControl = new BasicAccessControl();
 
@@ -48,6 +50,12 @@ public class MyUI extends UI {
         } else {
             showMainView();
         }
+    }
+
+    @Override
+    protected void initialize(VaadinRequest vaadinRequest)
+    {
+
     }
 
     protected void showMainView() {
