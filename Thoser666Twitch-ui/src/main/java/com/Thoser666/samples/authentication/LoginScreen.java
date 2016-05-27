@@ -52,7 +52,7 @@ public class LoginScreen extends CssLayout {
         try
         {
             conn = new DBConnection();
-            conn.customQueryWithResult("SELECT count(*) FROM user");
+            conn.customQueryWithResult("SELECT count(*) FROM t666t_user");
         }
         catch (SQLException e)
         {
