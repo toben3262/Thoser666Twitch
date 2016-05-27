@@ -1,6 +1,7 @@
 package com.Thoser666.samples.authentication;
 
 import java.io.Serializable;
+import java.sql.SQLException;
 
 import com.vaadin.event.ShortcutAction;
 import com.vaadin.server.Page;
@@ -16,6 +17,7 @@ import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.ValoTheme;
+import db.DBConnection;
 
 /**
  * UI content when the user is not logged in yet.
@@ -32,8 +34,33 @@ public class LoginScreen extends CssLayout {
     public LoginScreen(AccessControl accessControl, LoginListener loginListener) {
         this.loginListener = loginListener;
         this.accessControl = accessControl;
+
+        //Detect, which  Login-Info we need
+        readDatabase();
+
         buildUI();
         username.focus();
+    }
+
+    /*
+     *check if we have already a user.
+     * If not, change info on Loginscreen
+     */
+    private void readDatabase()
+    {
+        DBConnection conn = null;
+        try
+        {
+            conn = new DBConnection();
+            conn.customQueryWithResult("SELECT count(*) FROM user");
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e)
+        {
+            e.printStackTrace();
+        }
     }
 
     private void buildUI() {

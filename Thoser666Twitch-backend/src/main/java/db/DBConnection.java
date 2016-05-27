@@ -10,8 +10,10 @@ import org.h2.jdbcx.JdbcDataSource;
 public class DBConnection
 {
     private Connection conn = null;
+    private JdbcDataSource ds;
+
     public DBConnection() throws SQLException, ClassNotFoundException {
-        JdbcDataSource ds = new JdbcDataSource();
+        ds = new JdbcDataSource();
 		ds.setURL("jdbc:h2:./t666t");
 		ds.setUser("sa");
 		ds.setPassword("sa");
@@ -28,7 +30,22 @@ public class DBConnection
      */
     public String customQueryWithResult(String query)
     {
-        return "Test";
+        Statement stmt = null;
+        ResultSet rs = null;
+        String rueckgabe = null;
+
+        try
+        {
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(query);
+            rueckgabe = rs.getString(0);
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+
+        return rueckgabe;
     }
 
     /**
