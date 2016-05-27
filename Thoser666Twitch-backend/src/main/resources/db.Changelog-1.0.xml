@@ -8,10 +8,10 @@
     <changeSet id="1" author="thoser666">
         <preConditions>
             <not>
-                <tableExists tableName="user"/>
+                <tableExists tableName="t666t-user"/>
             </not>
         </preConditions>
-        <createTable tableName="user">
+        <createTable tableName="t666t-user">
             <column name="id" type="int">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
