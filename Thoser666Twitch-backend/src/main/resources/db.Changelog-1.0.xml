@@ -24,23 +24,28 @@
         </createTable>
     </changeSet>
     <changeSet id="2" author="thoser666">
+        <preConditions>
+            <not>
+                <columnExists tableName="t666t_user" columnName="password"/>
+            </not>
+        </preConditions>
         <addColumn tableName="t666t_user">
-            <column name="password" type="varchar(50)"/>
+            <column name="password" type="varchar(50)" value="admin"/>
         </addColumn>
     </changeSet>
     <changeSet id="3" author="thoser666">
-        <addDefaultValue tableName="t666t_user" columnName="password" defaultValue="admin"/>
-    </changeSet>
-    <changeSet id="4" author="thoser666">
+        <preConditions>
+            <not>
+                <columnExists tableName="t666t_user" columnName="loginname"/>
+            </not>
+        </preConditions>
         <addColumn tableName="t666t_user">
-            <column name="loginname" type="varchar(50)">
+            <column name="loginname" type="varchar(50)" value="admin">
                     <constraints nullable="false" unique="true"/>
             </column>
         </addColumn>
     </changeSet>
-    <changeSet id="5" author="thoser666">
-        <addDefaultValue tableName="t666t_user" columnName="loginname" defaultValue="admin"/>
-    </changeSet>
+
 
 </databaseChangeLog>
 
