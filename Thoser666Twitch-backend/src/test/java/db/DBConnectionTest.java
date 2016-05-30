@@ -49,9 +49,9 @@ public class DBConnectionTest
     }
 
     @Test
-    public void testForCustomQuery()
+    public void testForCustomExecute()
     {
-        String erg = db.customQueryWithResult("Select * from users");
+        String erg = db.customExecuteWithResult("CREATE TABLE t666t_users");
         assertNotNull(erg);
     }
 

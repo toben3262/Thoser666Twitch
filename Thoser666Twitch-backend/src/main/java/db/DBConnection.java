@@ -49,6 +49,31 @@ public class DBConnection
     }
 
     /**
+     * to send a Execute not covered by other ones
+     * @param query
+     * @return
+     */
+    public String customExecuteWithResult(String query)
+    {
+        Statement stmt = null;
+        boolean rs = Boolean.FALSE;
+        String rueckgabe = null;
+
+        try
+        {
+            stmt = conn.createStatement();
+            rs = stmt.execute(query);
+            rueckgabe = String.valueOf(rs);
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+
+        return rueckgabe;
+    }
+
+    /**
      * Connection close
      */
     public void connClose()
