@@ -31,6 +31,16 @@
     <changeSet id="3" author="thoser666">
         <addDefaultValue tableName="t666t_user" columnName="password" defaultValue="admin"/>
     </changeSet>
+    <changeSet id="4" author="thoser666">
+        <addColumn tableName="t666t_user">
+            <column name="loginname" type="varchar(50)">
+                    <constraints nullable="false" unique="true"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet id="5" author="thoser666">
+        <addDefaultValue tableName="t666t_user" columnName="loginname" defaultValue="admin"/>
+    </changeSet>
 
 </databaseChangeLog>
 
