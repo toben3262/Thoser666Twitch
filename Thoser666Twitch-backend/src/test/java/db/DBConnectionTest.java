@@ -51,7 +51,7 @@ public class DBConnectionTest
     @Test
     public void testForCustomExecute()
     {
-        String erg = db.customExecuteWithResult("CREATE TABLE t666t_users");
+        String erg = db.customExecuteWithResult("SELECT * FROM  t666t_user");
         assertNotNull(erg);
     }
 
