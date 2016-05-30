@@ -30,7 +30,7 @@
             </not>
         </preConditions>
         <addColumn tableName="t666t_user">
-            <column name="password" type="varchar(50)" value="admin"/>
+            <column name="password" type="varchar(50)"/>
         </addColumn>
     </changeSet>
     <changeSet id="3" author="thoser666">
@@ -40,11 +40,20 @@
             </not>
         </preConditions>
         <addColumn tableName="t666t_user">
-            <column name="loginname" type="varchar(50)" value="admin">
+            <column name="loginname" type="varchar(50)" >
                     <constraints nullable="false" unique="true"/>
             </column>
         </addColumn>
     </changeSet>
+	<changeSet id="4" author="thoser666">
+		<insert tableName="t666t_user">
+            <column name="id" value="1"/>
+			<column name="loginname" value="admin"/>
+            <column name="surename" value="admin"/>
+            <column name="forename" value="admin"/>
+			<column name="password" value="admin"/>
+		</insert>
+	</changeSet>	
 
 
 </databaseChangeLog>
