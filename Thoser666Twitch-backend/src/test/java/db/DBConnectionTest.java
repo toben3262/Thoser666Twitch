@@ -54,6 +54,13 @@ public class DBConnectionTest
         String erg = db.customExecuteWithResult("SELECT * FROM  t666t_user");
         assertNotNull(erg);
     }
+	
+	@Test
+    public void testForCustomQuery()
+    {
+        String erg = db.customQueryWithResult("SELECT * FROM  t666t_user");
+        assertNotNull(erg);
+    }
 
     @Test
     public void testConnectionClose()

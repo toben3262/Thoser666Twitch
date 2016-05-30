@@ -38,7 +38,7 @@ public class DBConnection
         {
             stmt = conn.createStatement();
             rs = stmt.executeQuery(query);
-            rueckgabe = rs.getString(0);
+            rueckgabe = String.valueOf(rs.getRow());
         } catch (SQLException e)
         {
             e.printStackTrace();
