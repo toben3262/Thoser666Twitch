@@ -14,7 +14,7 @@ public class DBConnection
 
     public DBConnection() throws SQLException, ClassNotFoundException {
         ds = new JdbcDataSource();
-		ds.setURL("jdbc:h2:~/test;AUTO_SERVER=TRUE;");
+		ds.setURL("jdbc:h2:~/t666t;AUTO_SERVER=TRUE;");
 		ds.setUser("sa");
 		ds.setPassword("");
 		conn = ds.getConnection();
