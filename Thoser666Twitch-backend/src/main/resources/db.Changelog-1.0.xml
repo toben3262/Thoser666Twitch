@@ -5,7 +5,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
     http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-    <changeSet id="1" author="thoser666" runOnChange="true">
+    <changeSet id="1" author="thoser666">
         <preConditions>
             <not>
                 <tableExists tableName="t666t_user"/>
@@ -22,6 +22,14 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
+    </changeSet>
+    <changeSet id="2" author="thoser666">
+        <addColumn tableName="t666t_user">
+            <column name="password" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="3" author="thoser666">
+        <addDefaultValue tableName="t666t_user" columnName="password" defaultValue="admin"/>
     </changeSet>
 
 </databaseChangeLog>
