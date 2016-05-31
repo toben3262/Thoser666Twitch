@@ -53,7 +53,20 @@
             <column name="forename" value="admin"/>
 			<column name="password" value="admin"/>
 		</insert>
-	</changeSet>	
+	</changeSet>
+
+
+    <changeSet id="t666t_settings_1" author="thoser666">
+        <preConditions>
+            <not>
+                <tableExists tableName="t666t_settings"/>
+            </not>
+        </preConditions>
+        <createTable tableName="t666t_settings">
+            <column name="key" type="varchar(50)"/>
+            <column name="value" type="varchar(50)"/>
+        </createTable>
+    </changeSet>
 
 
 </databaseChangeLog>
