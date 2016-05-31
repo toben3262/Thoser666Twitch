@@ -5,7 +5,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
     http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-    <changeSet id="1" author="thoser666">
+    <changeSet id="t666t_user_1" author="thoser666">
         <preConditions>
             <not>
                 <tableExists tableName="t666t_user"/>
@@ -23,7 +23,7 @@
             </column>
         </createTable>
     </changeSet>
-    <changeSet id="2" author="thoser666">
+    <changeSet id="t666t_user_2" author="thoser666">
         <preConditions>
             <not>
                 <columnExists tableName="t666t_user" columnName="password"/>
@@ -33,7 +33,7 @@
             <column name="password" type="varchar(50)"/>
         </addColumn>
     </changeSet>
-    <changeSet id="3" author="thoser666">
+    <changeSet id="t666t_user_3" author="thoser666">
         <preConditions>
             <not>
                 <columnExists tableName="t666t_user" columnName="loginname"/>
@@ -45,7 +45,7 @@
             </column>
         </addColumn>
     </changeSet>
-	<changeSet id="4" author="thoser666">
+	<changeSet id="t666t_user_4" author="thoser666">
 		<insert tableName="t666t_user">
             <column name="id" value="1"/>
 			<column name="loginname" value="admin"/>
