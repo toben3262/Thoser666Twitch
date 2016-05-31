@@ -1,8 +1,8 @@
-2016-05-30 15:37:16 jdbc[3]: exception
+2016-05-31 12:23:29 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Tabelle "DATABASECHANGELOGLOCK" nicht gefunden
 Table "DATABASECHANGELOGLOCK" not found; SQL statement:
 select count(*) from DATABASECHANGELOGLOCK [42102-191]
-2016-05-30 15:37:17 jdbc[3]: exception
+2016-05-31 12:23:29 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Feld "T.PASSWORD" nicht gefunden
 Column "T.PASSWORD" not found; SQL statement:
 select t.password from PUBLIC.t666t_user t where 0=1 [42122-191]
@@ -52,7 +52,7 @@ select t.password from PUBLIC.t666t_user t where 0=1 [42122-191]
 	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
 	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
 	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
-2016-05-30 15:37:17 jdbc[3]: exception
+2016-05-31 12:23:29 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Feld "T.LOGINNAME" nicht gefunden
 Column "T.LOGINNAME" not found; SQL statement:
 select t.loginname from PUBLIC.t666t_user t where 0=1 [42122-191]
