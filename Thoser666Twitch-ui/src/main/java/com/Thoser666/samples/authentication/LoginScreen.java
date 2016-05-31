@@ -53,7 +53,7 @@ public class LoginScreen extends CssLayout {
         try
         {
             conn = new DBConnection();
-            i = Integer.parseInt(conn.customQueryWithResult("SELECT count(*) FROM t666t_user"));
+            i = Integer.parseInt(conn.customQueryWithResult("SELECT count(*) AS count FROM t666t_user"));
         }
         catch (SQLException e)
         {
@@ -137,7 +137,9 @@ public class LoginScreen extends CssLayout {
                         + "Log in as &quot;admin&quot; to have full access. Log in with your name for access.",
                 ContentMode.HTML);
         // If we have only 1 user, change text
-        if (this.readDatabase()==1)
+        int ttt = this.readDatabase();
+System.out.println("ttt= " + ttt);
+        if (this.readDatabase()== 1)
         {
             loginInfoText.setValue("Seems that this is your first start. Login with admin/admin and add a user and change the adminpassword !");
         }
