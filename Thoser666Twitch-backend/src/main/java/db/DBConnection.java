@@ -38,8 +38,7 @@ public class DBConnection
         {
             stmt = conn.createStatement();
             rs = stmt.executeQuery(query);
-            rs.last();
-            rueckgabe = String.valueOf(rs.getRow());
+            rueckgabe = String.valueOf(rs.getInt(1));
         } catch (SQLException e)
         {
             e.printStackTrace();

@@ -137,11 +137,9 @@ public class LoginScreen extends CssLayout {
                         + "Log in as &quot;admin&quot; to have full access. Log in with your name for access.",
                 ContentMode.HTML);
         // If we have only 1 user, change text
-        int ttt = this.readDatabase();
-System.out.println("ttt= " + ttt);
         if (this.readDatabase()== 1)
         {
-            loginInfoText.setValue("Seems that this is your first start. Login with admin/admin and add a user and change the adminpassword !");
+            loginInfoText.setValue("Seems that this is your first start. Login with admin/admin and add a user and change the admin password !");
         }
         loginInformation.addComponent(loginInfoText);
         return loginInformation;
