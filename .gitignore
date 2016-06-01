@@ -63,3 +63,11 @@ fabric.properties
 /Thoser666Twitch-backend/Thoser666Twitch-backend.iml
 /Thoser666Twitch-production/Thoser666Twitch-production.iml
 /Thoser666Twitch-ui/Thoser666Twitch-ui.iml
+/t666t.trace.db
+/t666t.mv.db
+Thoser666Twitch-backend/target/
+Thoser666Twitch-production/target/
+Thoser666Twitch-ui/target/
+Thoser666Twitch-widgetset/target/
+t666t.mv.db
+t666t.trace.db
