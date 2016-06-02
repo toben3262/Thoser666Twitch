@@ -39,10 +39,10 @@ public class DBConnection
             stmt = conn.createStatement();
             rs = stmt.executeQuery(query);
             rs.next();
-            rueckgabe = String.valueOf(rs.getInt(1));
+            rueckgabe = rs.getString(1);
         } catch (SQLException e)
         {
-            e.printStackTrace();
+           e.printStackTrace();
         }
 
 

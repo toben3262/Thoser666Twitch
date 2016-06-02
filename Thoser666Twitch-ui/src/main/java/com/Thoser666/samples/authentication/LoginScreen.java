@@ -145,15 +145,33 @@ public class LoginScreen extends CssLayout {
         return loginInformation;
     }
 
+    // check if password is still the unencrypted "admin"
     private void login() {
-        if (accessControl.signIn(username.getValue(), password.getValue())) {
-            loginListener.loginSuccessful();
-        } else {
-            showNotification(new Notification("Login failed",
-                    "Please check your username and password and try again.",
-                    Notification.Type.HUMANIZED_MESSAGE));
-            username.focus();
+        DBConnection conn = null;
+
+        try
+        {
+            conn = new DBConnection();
+            String pwd = conn.customQueryWithResult("SELECT password from t666t_user u where u.loginname='admin'");
+            if (pwd.equalsIgnoreCase("admin"))
+            {
+                System.out.println("scheiße");
+            }
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e)
+        {
+            e.printStackTrace();
         }
+//        if (accessControl.signIn(username.getValue(), password.getValue())) {
+//            loginListener.loginSuccessful();
+//        } else {
+//            showNotification(new Notification("Login failed",
+//                    "Please check your username and password and try again.",
+//                    Notification.Type.HUMANIZED_MESSAGE));
+//            username.focus();
+//        }
     }
 
     private void showNotification(Notification notification) {
