@@ -156,8 +156,21 @@ public class LoginScreen extends CssLayout {
             String pwd = conn.customQueryWithResult("SELECT password from t666t_user u where u.loginname='admin'");
             if (pwd.equalsIgnoreCase("admin"))
             {
+                // enter new Adminpwd
                 I18NWindow window = new I18NWindow();
                 window.setModal(true);
+                VerticalLayout layout = new VerticalLayout();
+                window.setContent(layout);
+                layout.setWidth("100%");
+                layout.setSpacing(true);
+                layout.setMargin(true);
+
+                PasswordField oldPwd = new PasswordField("Old password");
+                PasswordField newPwd1 = new PasswordField("New password");
+                PasswordField newPwd2 = new PasswordField("Repeat New password");
+                layout.addComponent(oldPwd);
+                layout.addComponent(newPwd1);
+                layout.addComponent(newPwd2);
                 this.getUI().addWindow(window);
             }
         } catch (SQLException e)
