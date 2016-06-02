@@ -58,7 +58,14 @@ public class DBConnectionTest
 	@Test
     public void testForCustomQuery()
     {
-        String erg = db.customQueryWithResult("SELECT * FROM  t666t_user");
+        String erg = db.customQueryWithResult("SELECT * FROM  t666t_user ");
+        assertNotNull(erg);
+    }
+
+    @Test
+    public void testForCustomQueryWithWantedValue()
+    {
+        String erg = db.customQueryWithResult("SELECT password FROM  t666t_user u WHERE u.loginname='admin'");
         assertNotNull(erg);
     }
 
