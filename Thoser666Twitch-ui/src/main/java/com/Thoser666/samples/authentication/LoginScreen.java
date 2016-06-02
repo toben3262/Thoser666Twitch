@@ -3,6 +3,7 @@ package com.Thoser666.samples.authentication;
 import java.io.Serializable;
 import java.sql.SQLException;
 
+import com.jain.addon.i18N.component.I18NWindow;
 import com.vaadin.event.ShortcutAction;
 import com.vaadin.server.Page;
 import com.vaadin.shared.ui.label.ContentMode;
@@ -155,7 +156,9 @@ public class LoginScreen extends CssLayout {
             String pwd = conn.customQueryWithResult("SELECT password from t666t_user u where u.loginname='admin'");
             if (pwd.equalsIgnoreCase("admin"))
             {
-                System.out.println("scheiße");
+                I18NWindow window = new I18NWindow();
+                window.setModal(true);
+                this.getUI().addWindow(window);
             }
         } catch (SQLException e)
         {
