@@ -7,16 +7,7 @@ import com.jain.addon.i18N.component.I18NWindow;
 import com.vaadin.event.ShortcutAction;
 import com.vaadin.server.Page;
 import com.vaadin.shared.ui.label.ContentMode;
-import com.vaadin.ui.Alignment;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.Component;
-import com.vaadin.ui.CssLayout;
-import com.vaadin.ui.FormLayout;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.Notification;
-import com.vaadin.ui.PasswordField;
-import com.vaadin.ui.TextField;
-import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.*;
 import com.vaadin.ui.themes.ValoTheme;
 import db.DBConnection;
 
@@ -168,9 +159,15 @@ public class LoginScreen extends CssLayout {
                 PasswordField oldPwd = new PasswordField("Old password");
                 PasswordField newPwd1 = new PasswordField("New password");
                 PasswordField newPwd2 = new PasswordField("Repeat New password");
+                HorizontalLayout hor = new HorizontalLayout();
+                Button save = new Button("Save");
+                Button cancel = new Button("Cancel");
                 layout.addComponent(oldPwd);
                 layout.addComponent(newPwd1);
                 layout.addComponent(newPwd2);
+                hor.addComponent(save);
+                hor.addComponent(cancel);
+                layout.addComponent(hor);
                 this.getUI().addWindow(window);
             }
         } catch (SQLException e)
