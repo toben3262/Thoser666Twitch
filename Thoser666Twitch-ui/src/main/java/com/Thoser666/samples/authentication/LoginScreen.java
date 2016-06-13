@@ -169,6 +169,16 @@ public class LoginScreen extends CssLayout {
                 hor.addComponent(cancel);
                 layout.addComponent(hor);
                 this.getUI().addWindow(window);
+
+                // Clicklistener
+                save.addClickListener(new Button.ClickListener()
+                {
+                    @Override
+                    public void buttonClick(Button.ClickEvent clickEvent)
+                    {
+                        Notification.show("Works");
+                    }
+                });
             }
         } catch (SQLException e)
         {
