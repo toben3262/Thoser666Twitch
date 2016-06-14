@@ -179,6 +179,15 @@ public class LoginScreen extends CssLayout {
                         Notification.show("Works");
                     }
                 });
+
+                cancel.addClickListener(new Button.ClickListener()
+                {
+                    @Override
+                    public void buttonClick(Button.ClickEvent clickEvent)
+                    {
+                        window.close();
+                    }
+               });
             }
         } catch (SQLException e)
         {
