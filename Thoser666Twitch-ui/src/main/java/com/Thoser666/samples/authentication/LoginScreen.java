@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.sql.SQLException;
 
 import com.jain.addon.i18N.component.I18NWindow;
+import com.vaadin.data.validator.NullValidator;
 import com.vaadin.event.ShortcutAction;
 import com.vaadin.server.Page;
 import com.vaadin.shared.ui.label.ContentMode;
@@ -159,6 +160,22 @@ public class LoginScreen extends CssLayout {
                 PasswordField oldPwd = new PasswordField("Old password");
                 PasswordField newPwd1 = new PasswordField("New password");
                 PasswordField newPwd2 = new PasswordField("Repeat New password");
+
+                // Validations
+//                oldPwd.setBuffered(true);
+//                oldPwd.setNullRepresentation("");
+//                oldPwd.setNullSettingAllowed(true);
+//                oldPwd.addValidator(new NullValidator("may not be empty", false));
+//                oldPwd.setImmediate(true);
+//
+//
+//                newPwd1.setImmediate(true);
+//                newPwd1.addValidator(new NullValidator("cannot be empty", false));
+//                newPwd1.setNullSettingAllowed(false);
+//                newPwd2.setImmediate(true);
+//                newPwd2.addValidator(new NullValidator("cannot be empty", false));
+//                newPwd2.setNullSettingAllowed(false);
+
                 HorizontalLayout hor = new HorizontalLayout();
                 Button save = new Button("Save");
                 Button cancel = new Button("Cancel");
@@ -176,7 +193,10 @@ public class LoginScreen extends CssLayout {
                     @Override
                     public void buttonClick(Button.ClickEvent clickEvent)
                     {
-                        Notification.show("Works");
+                        String tmp1 = oldPwd.getValue();
+                        String tmp2 = newPwd1.getValue();
+                        String tmp3 = newPwd2.getValue();
+//                        String erg
                     }
                 });
 
