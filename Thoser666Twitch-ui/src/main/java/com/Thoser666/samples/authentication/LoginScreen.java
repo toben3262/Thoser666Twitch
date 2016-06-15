@@ -3,7 +3,9 @@ package com.Thoser666.samples.authentication;
 import java.io.Serializable;
 import java.sql.SQLException;
 
+import com.Thoser666.beans.PasswordChange;
 import com.jain.addon.i18N.component.I18NWindow;
+import com.vaadin.data.util.BeanItem;
 import com.vaadin.data.validator.NullValidator;
 import com.vaadin.event.ShortcutAction;
 import com.vaadin.server.Page;
@@ -162,11 +164,11 @@ public class LoginScreen extends CssLayout {
                 PasswordField newPwd2 = new PasswordField("Repeat New password");
 
                 // Validations
-//                oldPwd.setBuffered(true);
-//                oldPwd.setNullRepresentation("");
-//                oldPwd.setNullSettingAllowed(true);
-//                oldPwd.addValidator(new NullValidator("may not be empty", false));
-//                oldPwd.setImmediate(true);
+                oldPwd.focus();
+                oldPwd.setNullRepresentation("0");
+                oldPwd.setNullSettingAllowed(true);
+                oldPwd.addValidator(new NullValidator("may not be empty", false));
+                oldPwd.setImmediate(true);
 //
 //
 //                newPwd1.setImmediate(true);
@@ -196,7 +198,23 @@ public class LoginScreen extends CssLayout {
                         String tmp1 = oldPwd.getValue();
                         String tmp2 = newPwd1.getValue();
                         String tmp3 = newPwd2.getValue();
-//                        String erg
+                        if (tmp1.length() == 0)
+                        {
+                            Notification.show("old password field may not be empty", Notification.Type.ERROR_MESSAGE);
+                            oldPwd.focus();
+                        }
+                        else
+                        if  (tmp2.length() == 0)
+                        {
+                            Notification.show("new password field may not be empty", Notification.Type.ERROR_MESSAGE);
+                            newPwd1.focus();
+                        }
+                        else
+                        if  (tmp3.length() == 0)
+                        {
+                            Notification.show("repeat new password field may not be empty", Notification.Type.ERROR_MESSAGE);
+                            newPwd2.focus();
+                        }
                     }
                 });
 
