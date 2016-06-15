@@ -62,43 +62,20 @@ public class Crypt
      */
     public String encrypt(String text)
     {
-        // Verschluesseln
-        Cipher cipher = null;
-        try
-        {
-            cipher = Cipher.getInstance("AES");
-        } catch (NoSuchAlgorithmException e)
-        {
-            e.printStackTrace();
-        } catch (NoSuchPaddingException e)
-        {
-            e.printStackTrace();
-        }
-        try
-        {
-            cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec);
-        } catch (InvalidKeyException e)
-        {
-            e.printStackTrace();
-        }
-        byte[] encrypted = new byte[0];
-        try
-        {
-            encrypted = cipher.doFinal(text.getBytes());
-        } catch (IllegalBlockSizeException e)
-        {
-            e.printStackTrace();
-        } catch (BadPaddingException e)
-        {
-            e.printStackTrace();
-        }
+        // der zu verschl. Text
+        String text = "Das ist der Text";
 
-        // bytes zu Base64-String konvertieren (dient der Lesbarkeit)
+// Verschluesseln
+        Cipher cipher = Cipher.getInstance("AES");
+        cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec);
+        byte[] encrypted = cipher.doFinal(text.getBytes());
+
+// bytes zu Base64-String konvertieren (dient der Lesbarkeit)
         BASE64Encoder myEncoder = new BASE64Encoder();
         String geheim = myEncoder.encode(encrypted);
 
-        // Ergebnis
-        return geheim;
+// Ergebnis
+        System.out.println(geheim);
     }
 
     /**
