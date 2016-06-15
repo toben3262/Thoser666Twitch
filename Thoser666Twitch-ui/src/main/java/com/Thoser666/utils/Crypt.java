@@ -156,6 +156,6 @@ public class Crypt
         }
 
 // Klartext
-        System.out.println(erg);
+        return erg;
     }
 }
