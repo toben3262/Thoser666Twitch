@@ -20,6 +20,15 @@ public class CryptTest
     public void testforEncrypt
     {
         String erg = crypt.encrypt("testosteron");
-        assertEqual("erg", "E1uVlQYBUrB7k/2D+GHrYA==");
+        assertEqual(erg, "E1uVlQYBUrB7k/2D+GHrYA==");
+    }
+
+    /**
+     * Test for decrypt data
+     */
+    public void testforDecrypt()
+    {
+        String erg = crypt.decrypt("jcZyVG7CAfD+FQ9gAkhbfwzRD+tpKxeq8GRh+ub/uuc=");
+        assertEqual(erg, "Das ist der Text");
     }
 }

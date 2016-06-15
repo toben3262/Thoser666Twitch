@@ -1,5 +1,6 @@
 package com.Thoser666.utils;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.MessageDigest;
@@ -98,5 +99,63 @@ public class Crypt
 
         // Ergebnis
         return geheim;
+    }
+
+    /**
+     * decrypt text
+     */
+
+    public String decrypt(String text)
+    {
+        // der verschl. Text
+        String geheim = text;
+        String erg = null;
+
+// BASE64 String zu Byte-Array konvertieren
+        BASE64Decoder myDecoder2 = new BASE64Decoder();
+        byte[] crypted2 = new byte[256];
+        try
+        {
+            crypted2 = myDecoder2.decodeBuffer(geheim);
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+
+// Entschluesseln
+        Cipher cipher2 = null;
+        try
+        {
+            cipher2 = Cipher.getInstance("AES");
+        } catch (NoSuchAlgorithmException e)
+        {
+            e.printStackTrace();
+        } catch (NoSuchPaddingException e)
+        {
+            e.printStackTrace();
+        }
+        try
+        {
+            cipher2.init(Cipher.DECRYPT_MODE, secretKeySpec);
+        } catch (InvalidKeyException e)
+        {
+            e.printStackTrace();
+        }
+
+        try
+        {
+            byte[] cipherData2 = cipher2.doFinal(crypted2);
+
+            erg = new String(cipherData2);
+        } catch (BadPaddingException e)
+        {
+            e.printStackTrace();
+        } catch (IllegalBlockSizeException e)
+        {
+            e.printStackTrace();
+        }
+
+// Klartext
+        System.out.println(erg);
     }
 }
