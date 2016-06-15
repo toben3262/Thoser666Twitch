@@ -3,6 +3,13 @@ package com.Thoser666.utils;
 import org.junit.Before;
 import org.junit.Test;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import java.io.IOException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -34,7 +41,29 @@ public class CryptTest
     @Test
     public void testforDecrypt()
     {
-        String erg = crypt.decrypt("jcZyVG7CAfD+FQ9gAkhbfwzRD+tpKxeq8GRh+ub/uuc=");
+        String erg = null;
+        try
+        {
+            erg = crypt.decrypt("jcZyVG7CAfD+FQ9gAkhbfwzRD+tpKxeq8GRh+ub/uuc=");
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        } catch (NoSuchPaddingException e)
+        {
+            e.printStackTrace();
+        } catch (NoSuchAlgorithmException e)
+        {
+            e.printStackTrace();
+        } catch (InvalidKeyException e)
+        {
+            e.printStackTrace();
+        } catch (BadPaddingException e)
+        {
+            e.printStackTrace();
+        } catch (IllegalBlockSizeException e)
+        {
+            e.printStackTrace();
+        }
         assertTrue(erg.equals("Das ist der Text"));
     }
 }

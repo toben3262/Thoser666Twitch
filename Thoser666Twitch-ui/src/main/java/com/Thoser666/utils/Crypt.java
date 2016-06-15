@@ -105,57 +105,19 @@ public class Crypt
      * decrypt text
      */
 
-    public String decrypt(String text)
+    public String decrypt(String text) throws IOException, NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException
     {
-        // der verschl. Text
         String geheim = text;
-        String erg = null;
-
 // BASE64 String zu Byte-Array konvertieren
         BASE64Decoder myDecoder2 = new BASE64Decoder();
-        byte[] crypted2 = new byte[256];
-        try
-        {
-            crypted2 = myDecoder2.decodeBuffer(geheim);
-        } catch (IOException e)
-        {
-            e.printStackTrace();
-        }
+        byte[] crypted2 = myDecoder2.decodeBuffer(geheim);
 
 // Entschluesseln
-        Cipher cipher2 = null;
-        try
-        {
-            cipher2 = Cipher.getInstance("AES");
-        } catch (NoSuchAlgorithmException e)
-        {
-            e.printStackTrace();
-        } catch (NoSuchPaddingException e)
-        {
-            e.printStackTrace();
-        }
-        try
-        {
-            cipher2.init(Cipher.DECRYPT_MODE, secretKeySpec);
-        } catch (InvalidKeyException e)
-        {
-            e.printStackTrace();
-        }
+        Cipher cipher2 = Cipher.getInstance("AES");
+        cipher2.init(Cipher.DECRYPT_MODE, secretKeySpec);
+        byte[] cipherData2 = cipher2.doFinal(crypted2);
+        String erg = new String(cipherData2);
 
-        try
-        {
-            byte[] cipherData2 = cipher2.doFinal(crypted2);
-
-            erg = new String(cipherData2);
-        } catch (BadPaddingException e)
-        {
-            e.printStackTrace();
-        } catch (IllegalBlockSizeException e)
-        {
-            e.printStackTrace();
-        }
-
-// Klartext
         return erg;
     }
 }
