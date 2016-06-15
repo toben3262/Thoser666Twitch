@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.sql.SQLException;
 
 import com.Thoser666.beans.PasswordChange;
+import com.Thoser666.utils.Crypt;
 import com.jain.addon.i18N.component.I18NWindow;
 import com.vaadin.data.util.BeanItem;
 import com.vaadin.data.validator.NullValidator;
@@ -220,6 +221,12 @@ public class LoginScreen extends CssLayout {
                         {
                             Notification.show("entered Passwords are not equal", Notification.Type.ERROR_MESSAGE);
                             newPwd1.focus();
+                        }
+                        else
+                        {
+                            // encrypt and safe to H2
+                            Crypt crypt = new Crypt();
+                            String erg = crypt.encrypt(tmp2);
                         }
                     }
                 });
