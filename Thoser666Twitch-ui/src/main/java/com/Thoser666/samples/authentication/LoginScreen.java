@@ -215,6 +215,12 @@ public class LoginScreen extends CssLayout {
                             Notification.show("repeat new password field may not be empty", Notification.Type.ERROR_MESSAGE);
                             newPwd2.focus();
                         }
+                        else
+                        if (!(tmp2.equals(tmp3)))
+                        {
+                            Notification.show("entered Passwords are not equal", Notification.Type.ERROR_MESSAGE);
+                            newPwd1.focus();
+                        }
                     }
                 });
 
