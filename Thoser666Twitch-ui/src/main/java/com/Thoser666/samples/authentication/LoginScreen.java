@@ -9,6 +9,9 @@ import com.Thoser666.beans.PasswordChange;
 import com.Thoser666.utils.Crypt;
 import com.jain.addon.i18N.component.I18NWindow;
 import com.vaadin.data.util.BeanItem;
+import com.vaadin.data.util.sqlcontainer.connection.JDBCConnectionPool;
+import com.vaadin.data.util.sqlcontainer.connection.SimpleJDBCConnectionPool;
+import com.vaadin.data.util.sqlcontainer.query.TableQuery;
 import com.vaadin.data.validator.NullValidator;
 import com.vaadin.event.ShortcutAction;
 import com.vaadin.server.Page;
@@ -230,7 +233,7 @@ public class LoginScreen extends CssLayout {
                         }
                         else
                         {
-                            // encrypt and safe to H2
+                            // encrypt and save to H2
                             Crypt crypt = new Crypt();
                             try
                             {
@@ -251,6 +254,18 @@ public class LoginScreen extends CssLayout {
                             {
                                 e.printStackTrace();
                             }
+
+                            JDBCConnectionPool pool = null;
+                            try
+                            {
+                                pool = new SimpleJDBCConnectionPool("org.h2.Driver",
+                                        "jdbc:h2:./t666t", "SA", "SA");
+                            } catch (SQLException e)
+                            {
+                                e.printStackTrace();
+                            }
+
+
                         }
                     }
                 });
