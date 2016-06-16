@@ -200,6 +200,7 @@ public class LoginScreen extends CssLayout {
                 this.getUI().addWindow(window);
 
                 // Clicklistener
+                DBConnection finalConn = conn;
                 save.addClickListener(new Button.ClickListener()
                 {
                     @Override
@@ -235,9 +236,11 @@ public class LoginScreen extends CssLayout {
                         {
                             // encrypt and save to H2
                             Crypt crypt = new Crypt();
+                            String erg = null;
                             try
                             {
-                                String erg = crypt.encrypt(tmp2);
+
+                                erg = crypt.encrypt(tmp2);
                             } catch (NoSuchPaddingException e)
                             {
                                 e.printStackTrace();
@@ -255,8 +258,9 @@ public class LoginScreen extends CssLayout {
                                 e.printStackTrace();
                             }
 
-
-
+                            String query = new String("UPDATE T666T_USER SET password= '" + erg + "' WHERE loginname = 'admin'");
+                            String erg1 = finalConn.customExecuteWithResult(query);
+System.out.println("erg= " + erg1);
 
                         }
                     }
