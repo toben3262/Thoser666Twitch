@@ -60,7 +60,7 @@ public class Crypt
      * @param text
      * @return
      */
-    public String encrypt(String text)
+    public String encrypt(String text) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException
     {
         // der zu verschl. Text
  //       String text = "Das ist der Text";
@@ -75,26 +75,26 @@ public class Crypt
         String geheim = myEncoder.encode(encrypted);
 
 // Ergebnis
-        System.out.println(geheim);
+        return geheim;
     }
 
     /**
-     * decrypt text
+     * decrypt text (not used)
      */
 
-    public String decrypt(String text) throws IOException, NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException
-    {
-        String geheim = text;
-// BASE64 String zu Byte-Array konvertieren
-        BASE64Decoder myDecoder2 = new BASE64Decoder();
-        byte[] crypted2 = myDecoder2.decodeBuffer(geheim);
-
-// Entschluesseln
-        Cipher cipher2 = Cipher.getInstance("AES");
-        cipher2.init(Cipher.DECRYPT_MODE, secretKeySpec);
-        byte[] cipherData2 = cipher2.doFinal(crypted2);
-        String erg = new String(cipherData2);
-
-        return erg;
-    }
+//    public String decrypt(String text) throws IOException, NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException
+//    {
+//        String geheim = text;
+//// BASE64 String zu Byte-Array konvertieren
+//        BASE64Decoder myDecoder2 = new BASE64Decoder();
+//        byte[] crypted2 = myDecoder2.decodeBuffer(geheim);
+//
+//// Entschluesseln
+//        Cipher cipher2 = Cipher.getInstance("AES");
+//        cipher2.init(Cipher.DECRYPT_MODE, secretKeySpec);
+//        byte[] cipherData2 = cipher2.doFinal(crypted2);
+//        String erg = new String(cipherData2);
+//
+//        return erg;
+//    }
 }

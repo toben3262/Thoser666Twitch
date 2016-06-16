@@ -1,6 +1,8 @@
 package com.Thoser666.samples.authentication;
 
 import java.io.Serializable;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
 import com.Thoser666.beans.PasswordChange;
@@ -14,6 +16,10 @@ import com.vaadin.shared.ui.label.ContentMode;
 import com.vaadin.ui.*;
 import com.vaadin.ui.themes.ValoTheme;
 import db.DBConnection;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 
 /**
  * UI content when the user is not logged in yet.
@@ -226,7 +232,25 @@ public class LoginScreen extends CssLayout {
                         {
                             // encrypt and safe to H2
                             Crypt crypt = new Crypt();
-                            String erg = crypt.encrypt(tmp2);
+                            try
+                            {
+                                String erg = crypt.encrypt(tmp2);
+                            } catch (NoSuchPaddingException e)
+                            {
+                                e.printStackTrace();
+                            } catch (NoSuchAlgorithmException e)
+                            {
+                                e.printStackTrace();
+                            } catch (InvalidKeyException e)
+                            {
+                                e.printStackTrace();
+                            } catch (BadPaddingException e)
+                            {
+                                e.printStackTrace();
+                            } catch (IllegalBlockSizeException e)
+                            {
+                                e.printStackTrace();
+                            }
                         }
                     }
                 });
