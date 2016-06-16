@@ -255,15 +255,7 @@ public class LoginScreen extends CssLayout {
                                 e.printStackTrace();
                             }
 
-                            JDBCConnectionPool pool = null;
-                            try
-                            {
-                                pool = new SimpleJDBCConnectionPool("org.h2.Driver",
-                                        "jdbc:h2:./t666t", "SA", "SA");
-                            } catch (SQLException e)
-                            {
-                                e.printStackTrace();
-                            }
+
 
 
                         }
