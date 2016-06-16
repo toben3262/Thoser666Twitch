@@ -63,7 +63,7 @@ public class Crypt
     public String encrypt(String text)
     {
         // der zu verschl. Text
-        String text = "Das ist der Text";
+ //       String text = "Das ist der Text";
 
 // Verschluesseln
         Cipher cipher = Cipher.getInstance("AES");
