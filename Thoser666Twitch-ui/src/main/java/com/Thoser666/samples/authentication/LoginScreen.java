@@ -5,15 +5,13 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
-import com.Thoser666.beans.PasswordChange;
 import com.Thoser666.utils.Crypt;
+import com.jain.addon.JNIComponentInit;
 import com.jain.addon.i18N.component.I18NWindow;
-import com.vaadin.data.util.BeanItem;
-import com.vaadin.data.util.sqlcontainer.connection.JDBCConnectionPool;
-import com.vaadin.data.util.sqlcontainer.connection.SimpleJDBCConnectionPool;
-import com.vaadin.data.util.sqlcontainer.query.TableQuery;
+import com.jain.addon.resource.I18NProvider;
 import com.vaadin.data.validator.NullValidator;
 import com.vaadin.event.ShortcutAction;
+import com.vaadin.server.LocaleService;
 import com.vaadin.server.Page;
 import com.vaadin.shared.ui.label.ContentMode;
 import com.vaadin.ui.*;
@@ -35,10 +33,13 @@ public class LoginScreen extends CssLayout {
     private Button forgotPassword;
     private LoginListener loginListener;
     private AccessControl accessControl;
+    private I18NWindow window;
+    private I18NProvider provider;
 
-    public LoginScreen(AccessControl accessControl, LoginListener loginListener) {
+    public LoginScreen(AccessControl accessControl, I18NProvider provider, LoginListener loginListener) {
         this.loginListener = loginListener;
         this.accessControl = accessControl;
+        this.provider = provider;
 
         //Detect, which  Login-Info we need
         readDatabase();
@@ -92,12 +93,13 @@ public class LoginScreen extends CssLayout {
         addComponent(loginInformation);
     }
 
+    @JNIComponentInit
     private Component buildLoginForm() {
         FormLayout loginForm = new FormLayout();
-
         loginForm.addStyleName("login-form");
         loginForm.setSizeUndefined();
         loginForm.setMargin(false);
+
 
         loginForm.addComponent(username = new TextField("loginscreen.username", "admin"));
         username.setWidth(15, Unit.EM);
@@ -161,7 +163,7 @@ public class LoginScreen extends CssLayout {
             if (pwd.equalsIgnoreCase("admin"))
             {
                 // enter new Adminpwd
-                I18NWindow window = new I18NWindow();
+                window = new I18NWindow();
                 window.setModal(true);
                 VerticalLayout layout = new VerticalLayout();
                 window.setContent(layout);

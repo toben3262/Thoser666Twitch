@@ -9,6 +9,7 @@ import com.Thoser666.samples.authentication.LoginScreen;
 import com.Thoser666.samples.authentication.LoginScreen.LoginListener;
 
 import com.jain.addon.i18N.component.I18NUI;
+import com.jain.addon.resource.I18NProvider;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.annotations.Viewport;
@@ -35,13 +36,26 @@ public class MyUI extends I18NUI
 
     private AccessControl accessControl = new BasicAccessControl();
 
+    public I18NProvider getProvider()
+    {
+        return provider;
+    }
+
+    public void setProvider(I18NProvider provider)
+    {
+        this.provider = provider;
+    }
+
+    I18NProvider provider = this.getI18nProvider();
+
     @Override
     protected void init(VaadinRequest vaadinRequest) {
         Responsive.makeResponsive(this);
+
         setLocale(vaadinRequest.getLocale());
         getPage().setTitle("Thoser666Twitch");
         if (!accessControl.isUserSignedIn()) {
-            setContent(new LoginScreen(accessControl, new LoginListener() {
+            setContent(new LoginScreen(accessControl, provider, new LoginListener() {
                 @Override
                 public void loginSuccessful() {
                     showMainView();
