@@ -71,3 +71,7 @@ Thoser666Twitch-ui/target/
 Thoser666Twitch-widgetset/target/
 t666t.mv.db
 t666t.trace.db
+/Thoser666Twitch-backend.h2.db
+.idea/deployment.xml
+.idea/webServers.xml
+Thoser666Twitch-backend.h2.db
