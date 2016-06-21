@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
+import java.util.Locale;
 
 import com.Thoser666.utils.Crypt;
 import com.jain.addon.JNIComponentInit;
@@ -35,11 +36,13 @@ public class LoginScreen extends CssLayout {
     private AccessControl accessControl;
     private I18NWindow window;
     private I18NProvider provider;
+    private Locale locale;
 
-    public LoginScreen(AccessControl accessControl, I18NProvider provider, LoginListener loginListener) {
+    public LoginScreen(AccessControl accessControl, I18NProvider provider, Locale locale, LoginListener loginListener) {
         this.loginListener = loginListener;
         this.accessControl = accessControl;
         this.provider = provider;
+        this.locale = locale;
 
         //Detect, which  Login-Info we need
         readDatabase();
@@ -99,9 +102,7 @@ public class LoginScreen extends CssLayout {
         loginForm.addStyleName("login-form");
         loginForm.setSizeUndefined();
         loginForm.setMargin(false);
-
-
-        loginForm.addComponent(username = new TextField("loginscreen.username", "admin"));
+        loginForm.addComponent(username = new TextField(provider.getText(locale, "loginscreen.username"), "admin"));
         username.setWidth(15, Unit.EM);
         loginForm.addComponent(password = new PasswordField("Password"));
         password.setWidth(15, Unit.EM);

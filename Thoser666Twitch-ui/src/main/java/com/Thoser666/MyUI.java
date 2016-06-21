@@ -55,7 +55,7 @@ public class MyUI extends I18NUI
         setLocale(vaadinRequest.getLocale());
         getPage().setTitle("Thoser666Twitch");
         if (!accessControl.isUserSignedIn()) {
-            setContent(new LoginScreen(accessControl, provider, new LoginListener() {
+            setContent(new LoginScreen(accessControl, provider, vaadinRequest.getLocale(),  new LoginListener() {
                 @Override
                 public void loginSuccessful() {
                     showMainView();
