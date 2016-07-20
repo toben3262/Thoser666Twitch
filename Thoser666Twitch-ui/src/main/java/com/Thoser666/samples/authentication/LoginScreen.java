@@ -286,9 +286,11 @@ public class LoginScreen extends CssLayout {
         }
 
 
-//        if (accessControl.signIn(username.getValue(), password.getValue())) {
-//            loginListener.loginSuccessful();
-//        } else {
+        if (accessControl.signIn(username.getValue(), password.getValue()))
+        {
+            loginListener.loginSuccessful();
+        }
+//        else {
 //            showNotification(new Notification("Login failed",
 //                    "Please check your username and password and try again.",
 //                    Notification.Type.HUMANIZED_MESSAGE));
@@ -302,6 +304,7 @@ public class LoginScreen extends CssLayout {
         notification.setDelayMsec(2000);
         notification.show(Page.getCurrent());
     }
+
 
     public interface LoginListener extends Serializable {
         void loginSuccessful();

@@ -8,7 +8,9 @@ import com.Thoser666.samples.authentication.BasicAccessControl;
 import com.Thoser666.samples.authentication.LoginScreen;
 import com.Thoser666.samples.authentication.LoginScreen.LoginListener;
 
+import com.Thoser666.utils.T666TI18NResourceProvider;
 import com.jain.addon.i18N.component.I18NUI;
+import com.jain.addon.resource.DefaultI18NResourceProvider;
 import com.jain.addon.resource.I18NProvider;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
@@ -48,16 +50,22 @@ public class MyUI extends I18NUI
 
     I18NProvider provider = this.getI18nProvider();
 
+
+
+
     @Override
     protected void init(VaadinRequest vaadinRequest) {
         Responsive.makeResponsive(this);
-
         setLocale(vaadinRequest.getLocale());
         getPage().setTitle("Thoser666Twitch");
-        if (!accessControl.isUserSignedIn()) {
-            setContent(new LoginScreen(accessControl, provider, vaadinRequest.getLocale(),  new LoginListener() {
+        if (!accessControl.isUserSignedIn())
+        {
+            provider = T666TI18NResourceProvider.instance();
+            setContent(new LoginScreen(accessControl, provider, vaadinRequest.getLocale(),  new LoginListener()
+            {
                 @Override
-                public void loginSuccessful() {
+                public void loginSuccessful()
+                {
                     showMainView();
                 }
             }));
@@ -89,5 +97,10 @@ public class MyUI extends I18NUI
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
     @VaadinServletConfiguration(ui = MyUI.class, productionMode = false)
     public static class MyUIServlet extends VaadinServlet {
+    }
+
+    // my own provider
+    public  I18NProvider getI18nProvider() {
+        return T666TI18NResourceProvider.instance();
     }
 }
