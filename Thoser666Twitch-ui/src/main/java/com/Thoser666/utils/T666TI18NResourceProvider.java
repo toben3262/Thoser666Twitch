@@ -2,6 +2,8 @@ package com.Thoser666.utils;
 
 import com.jain.addon.resource.AbstractI18NResourceProvider;
 
+import java.io.File;
+import java.net.URL;
 import java.util.Locale;
 
 import java.io.IOException;
@@ -52,15 +54,19 @@ public class T666TI18NResourceProvider extends AbstractI18NResourceProvider
     private Properties getProperties(String locale) {
         Properties properties = propsForLocale.get(locale);
         if(properties == null || properties.isEmpty()) {
-            String file = "messages" + (locale == null ? BLANK : ("_" + locale)) + ".properties";
+            String file = System.getProperty("user.dir") + System.getProperty("file.separator") + "messages" + (locale == null ? BLANK : ("_" + locale)) + ".properties";
             properties = new Properties();
             try {
-                InputStream stream = T666TI18NResourceProvider.class.getResourceAsStream(file);
+                InputStream stream = ClassLoader.getSystemClassLoader().getResourceAsStream(file);
                 if(stream != null) {
                     properties.load(stream);
                     propsForLocale.put(locale, properties);
                 }
             } catch (IOException e) {
+                e.printStackTrace();
+            }
+            catch (Exception e)
+            {
                 e.printStackTrace();
             }
 
