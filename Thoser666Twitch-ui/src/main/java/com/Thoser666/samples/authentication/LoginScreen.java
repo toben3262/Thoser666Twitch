@@ -285,7 +285,6 @@ public class LoginScreen extends CssLayout {
             e.printStackTrace();
         }
 
-showNotification(new Notification("funzt", "Mer san drin", Notification.Type.HUMANIZED_MESSAGE));
 
 //        if (accessControl.signIn(username.getValue(), password.getValue())) {
 //            loginListener.loginSuccessful();
