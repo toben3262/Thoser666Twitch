@@ -19,6 +19,7 @@ import com.vaadin.annotations.Widgetset;
 import com.vaadin.server.Responsive;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
+import com.vaadin.ui.Notification;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.themes.ValoTheme;
 
@@ -66,7 +67,8 @@ public class MyUI extends I18NUI
                 @Override
                 public void loginSuccessful()
                 {
-                    showMainView();
+                    Notification.show("funzt", "und wie" , Notification.Type.HUMANIZED_MESSAGE);
+//                    showMainView();
                 }
             }));
         } else {
