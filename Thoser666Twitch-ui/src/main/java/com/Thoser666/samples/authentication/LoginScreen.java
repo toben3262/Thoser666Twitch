@@ -263,7 +263,6 @@ public class LoginScreen extends CssLayout {
 
                             String query = new String("UPDATE T666T_USER SET password= '" + erg + "' WHERE loginname = 'admin'");
                             String erg1 = finalConn.customExecuteWithResult(query);
-System.out.println("erg= " + erg1);
 
                         }
                     }
@@ -285,6 +284,9 @@ System.out.println("erg= " + erg1);
         {
             e.printStackTrace();
         }
+
+showNotification(new Notification("funzt", "Mer san drin", Notification.Type.HUMANIZED_MESSAGE));
+
 //        if (accessControl.signIn(username.getValue(), password.getValue())) {
 //            loginListener.loginSuccessful();
 //        } else {
