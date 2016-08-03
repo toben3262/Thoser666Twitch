@@ -67,8 +67,8 @@ public class MyUI extends I18NUI
                 @Override
                 public void loginSuccessful()
                 {
-                    Notification.show("funzt", "und wie" , Notification.Type.HUMANIZED_MESSAGE);
-//                    showMainView();
+ //                   Notification.show("funzt", "und wie" , Notification.Type.TRAY_NOTIFICATION);
+                   showMainView();
                 }
             }));
         } else {
@@ -82,10 +82,13 @@ public class MyUI extends I18NUI
 
     }
 
-    protected void showMainView() {
-        addStyleName(ValoTheme.UI_WITH_MENU);
-        setContent(new MainScreen(MyUI.this));
-        getNavigator().navigateTo(getNavigator().getState());
+    protected void showMainView()
+    {
+        Notification.show("funzt1", "und wi1e" , Notification.Type.TRAY_NOTIFICATION);
+        // Original
+ //       addStyleName(ValoTheme.UI_WITH_MENU);
+ //       setContent(new MainScreen(MyUI.this));
+ //       getNavigator().navigateTo(getNavigator().getState());
     }
 
     public static MyUI get() {
